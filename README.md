@@ -65,7 +65,7 @@ diangkat:
 
 1. Clone repository lalu masuk ke foldernya:
    ```bash
-   git clone <url-repository-ini>
+   git clone https://github.com/weslyambaritaa/cyberaman.git
    cd cyberaman
    ```
 
