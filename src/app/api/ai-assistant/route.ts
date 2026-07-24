@@ -5,7 +5,10 @@ import { createClient } from "@/lib/supabase/server";
 import { rateLimit } from "@/lib/rate-limit";
 import { learningModules } from "@/lib/content/modules";
 
-const MODEL = "gemini-2.0-flash";
+// "gemini-flash-latest" is a stable alias Google keeps pointed at whichever
+// flash model is current — avoids re-pinning this every time a dated model
+// name (e.g. gemini-2.0-flash) ages out of the free tier.
+const MODEL = "gemini-flash-latest";
 
 const ANALYZE_SYSTEM_PROMPT = `Kamu adalah asisten keamanan siber yang membantu pengguna awam mengenali pesan phishing/social engineering. Untuk teks yang diberikan, evaluasi tanda-tanda berikut: (1) bahasa mendesak/urgency ("segera", "24 jam", akun akan diblokir), (2) tautan atau kontak yang mencurigakan/tidak resmi, (3) permintaan data sensitif (OTP, kata sandi, data kartu, KTP), (4) tawaran yang tidak wajar (hadiah, diskon ekstrem). Mulai jawabanmu dengan kesimpulan tebal: "Kemungkinan Phishing", "Kemungkinan Aman", atau "Perlu Kehati-hatian" — lalu jelaskan alasannya dalam poin-poin singkat berbahasa Indonesia. Jangan menjawab hal di luar analisis keamanan pesan ini.`;
 
