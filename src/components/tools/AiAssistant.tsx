@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Markdown from "react-markdown";
 import { Sparkles, ScanSearch, MessageCircleQuestion, Loader2 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
@@ -119,9 +120,9 @@ export function AiAssistant() {
           <div className="flex items-center gap-2 border-b border-slate-800 pb-3 text-sm font-medium text-emerald-400">
             <Sparkles className="h-4 w-4" /> Jawaban AI
           </div>
-          <p className="whitespace-pre-line pt-3 text-sm leading-relaxed text-slate-300">
-            {result}
-          </p>
+          <div className="prose prose-invert prose-sm max-w-none pt-3 prose-p:text-slate-300 prose-li:text-slate-300 prose-strong:text-white prose-headings:text-white">
+            <Markdown>{result}</Markdown>
+          </div>
         </Card>
       )}
     </div>
