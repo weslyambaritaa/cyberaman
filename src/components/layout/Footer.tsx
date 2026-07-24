@@ -8,7 +8,7 @@ export function Footer() {
           <Shield className="h-4 w-4 text-emerald-400" aria-hidden />
           <span>CyberAman &mdash; Lomba Web Development FTI Festival 2026</span>
         </div>
-        <span>Tema: PIXEL — Protection Information Exploration in the Digital Era</span>
+        
       </div>
     </footer>
   );
