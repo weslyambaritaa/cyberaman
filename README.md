@@ -21,6 +21,16 @@ diangkat:
 
 ## Fitur
 
+**Tools Unggulan (game changer):**
+- **Pemindai Link** — cek URL apa pun secara real-time (bukan contoh statis) lewat
+  mesin heuristik sendiri (deteksi typosquatting pakai Levenshtein distance,
+  punycode/homograph, IP sebagai host, TLD & pemendek URL mencurigakan), plus
+  verifikasi opsional ke database ancaman nyata Google Safe Browsing.
+- **Simulasi Roleplay Penipu** — bukan kuis statis, tapi percakapan real-time
+  dengan AI yang benar-benar berperan sebagai penipu (4 skenario modus umum di
+  Indonesia). Di akhir sesi, AI yang sama berganti peran jadi evaluator dan
+  memberi skor ketahanan 0-100 beserta feedback spesifik.
+
 **Tools (`/tools`):**
 - **Cek Kekuatan Kata Sandi** — analisis kekuatan kata sandi memakai `zxcvbn` (dihitung
   sepenuhnya di sisi klien, kata sandi asli tidak pernah dikirim ke server), plus cek
@@ -57,7 +67,9 @@ diangkat:
 - [exifr](https://github.com/MikeKovarik/exifr) — parsing metadata EXIF di browser
 - [otpauth](https://github.com/hectorm/otpauth) — implementasi algoritma TOTP
 - [Have I Been Pwned API](https://haveibeenpwned.com/API/v3#PwnedPasswords) — cek kebocoran kata sandi (gratis, k-anonymity)
-- [Google Gemini API](https://ai.google.dev/) — AI Security Assistant
+- [Google Gemini API](https://ai.google.dev/) — AI Security Assistant & Simulasi Roleplay Penipu
+- [Google Safe Browsing API](https://developers.google.com/safe-browsing) — verifikasi URL ke database ancaman nyata (opsional)
+- [react-markdown](https://github.com/remarkjs/react-markdown) + [@tailwindcss/typography](https://github.com/tailwindlabs/tailwindcss-typography) — render jawaban AI
 - [Zod](https://zod.dev) — validasi input server-side
 - [lucide-react](https://lucide.dev) — ikon
 
@@ -85,12 +97,19 @@ diangkat:
    cp .env.local.example .env.local
    ```
 
-5. (Opsional) Untuk fitur **AI Security Assistant**, tambahkan `GEMINI_API_KEY`
-   di `.env.local` — dapatkan gratis di [aistudio.google.com/apikey](https://aistudio.google.com/apikey).
-   Tanpa key ini, seluruh situs tetap berjalan normal; hanya tool tersebut yang
+5. (Opsional) Untuk fitur **AI Security Assistant** dan **Simulasi Roleplay
+   Penipu**, tambahkan `GEMINI_API_KEY` di `.env.local` — dapatkan gratis di
+   [aistudio.google.com/apikey](https://aistudio.google.com/apikey). Tanpa key
+   ini, seluruh situs tetap berjalan normal; hanya kedua tool tersebut yang
    menampilkan pesan "belum dikonfigurasi".
 
-6. Jalankan mode pengembangan:
+6. (Opsional) Untuk verifikasi tambahan di **Pemindai Link**, tambahkan
+   `GOOGLE_SAFE_BROWSING_API_KEY` di `.env.local` (aktifkan "Safe Browsing API"
+   di [Google Cloud Console](https://console.cloud.google.com/) pada project
+   yang sama). Tanpa key ini, Pemindai Link tetap bekerja penuh lewat mesin
+   heuristik sendiri — key ini hanya menambah satu lapis verifikasi.
+
+7. Jalankan mode pengembangan:
    ```bash
    npm run dev
    ```
@@ -99,8 +118,9 @@ diangkat:
 ## Akun demo
 
 Untuk keperluan penilaian juri, gunakan akun berikut (progres sudah terisi:
-beberapa modul selesai, tools penilaian sudah dicoba, dan seluruh 5 lencana
-sudah unlocked):
+beberapa modul selesai dan tools penilaian sudah dicoba — lencana "Anti
+Manipulasi" dari Simulasi Roleplay belum otomatis ter-unlock karena butuh
+sesi live, silakan dicoba langsung):
 
 | Email | Password |
 |---|---|
@@ -143,8 +163,10 @@ materi bacaan di modul belajar):
 ```
 src/
   app/                  Route pages (App Router)
-    tools/               Hub + 6 tools interaktif
+    tools/               Hub + 8 tools interaktif
     api/ai-assistant/    Route handler server-side untuk Gemini API
+    api/roleplay/        Route handler multi-turn untuk Simulasi Roleplay
+    api/url-scan/        Route handler heuristik + Google Safe Browsing
     learn/               Modul belajar + halaman detail
     dashboard/           Skor keamanan, poin, lencana, progres
     leaderboard/         Papan skor publik
@@ -162,6 +184,7 @@ src/
     queries.ts             Query baca data (server-side)
     rate-limit.ts          Rate limiter in-memory
     pwned-check.ts          Client-side check ke HIBP Pwned Passwords
+    url-scanner.ts          Mesin heuristik Pemindai Link (server-side)
     types.ts               Tipe TypeScript bersama
   proxy.ts               Proteksi route + refresh sesi (proxy.ts, bukan middleware.ts — konvensi Next.js 16)
 supabase/
@@ -175,4 +198,5 @@ Aplikasi ini bisa di-deploy ke platform hosting apa pun yang mendukung Next.js
 (disarankan [Vercel](https://vercel.com)). Setelah deploy, tambahkan environment
 variable berikut (sama seperti di `.env.local`) pada pengaturan project di
 platform hosting: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
-dan `GEMINI_API_KEY` (opsional, untuk AI Security Assistant).
+`GEMINI_API_KEY` (opsional, untuk AI Security Assistant & Simulasi Roleplay),
+dan `GOOGLE_SAFE_BROWSING_API_KEY` (opsional, untuk Pemindai Link).

@@ -1,4 +1,4 @@
-import { Shield, ShieldCheck, ShieldPlus, Fish, Search, Lock } from "lucide-react";
+import { Shield, ShieldCheck, ShieldPlus, ShieldAlert, Fish, Search, Lock } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import type { Badge } from "@/lib/types";
 
@@ -6,6 +6,7 @@ const ICONS: Record<string, typeof Shield> = {
   Shield,
   ShieldCheck,
   ShieldPlus,
+  ShieldAlert,
   Fish,
   Search,
 };

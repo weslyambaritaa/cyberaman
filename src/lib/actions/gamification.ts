@@ -7,6 +7,7 @@ import { rateLimit } from "@/lib/rate-limit";
 import { phishingSamples } from "@/lib/content/phishing-samples";
 import { learningModules } from "@/lib/content/modules";
 import { footprintChecklist } from "@/lib/content/footprint-checklist";
+import { roleplayScenarios } from "@/lib/content/roleplay-scenarios";
 
 const POINTS = {
   passwordCheckFirstTry: 5,
@@ -14,11 +15,16 @@ const POINTS = {
   footprintCompleted: 15,
   moduleCompleted: 10,
   metadataCheckFirstTry: 5,
+  urlScanFirstTry: 5,
+  roleplaySessionFirstTry: 10,
 } as const;
+
+const ROLEPLAY_RESILIENT_THRESHOLD = 70;
 
 const VALID_SAMPLE_IDS = new Set(phishingSamples.map((s) => s.id));
 const VALID_MODULE_SLUGS = new Set(learningModules.map((m) => m.slug));
 const VALID_CHECKLIST_IDS = new Set(footprintChecklist.map((c) => c.id));
+const VALID_SCENARIO_IDS = new Set(roleplayScenarios.map((s) => s.id));
 
 const passwordCheckSchema = z.object({
   score: z.number().int().min(0).max(4),
@@ -47,6 +53,18 @@ const footprintResultSchema = z
 
 const moduleSlugSchema = z.string().refine((slug) => VALID_MODULE_SLUGS.has(slug), {
   message: "Modul tidak dikenal.",
+});
+
+const urlScanSchema = z.object({
+  domain: z.string().trim().min(1).max(255),
+  riskTier: z.enum(["aman", "waspada", "berisiko"]),
+});
+
+const roleplaySessionSchema = z.object({
+  scenario: z.string().refine((id) => VALID_SCENARIO_IDS.has(id), {
+    message: "Skenario tidak dikenal.",
+  }),
+  score: z.number().int().min(0).max(100),
 });
 
 // Every mutation below also requires an authenticated user, but a signed-in
@@ -217,6 +235,72 @@ export async function recordMetadataCheck(hadGps: boolean) {
   if (!count) {
     await supabase.rpc("add_points", { p_amount: POINTS.metadataCheckFirstTry });
     awarded = POINTS.metadataCheckFirstTry;
+  }
+
+  revalidatePath("/dashboard");
+  return { awarded };
+}
+
+export async function recordUrlScan(domain: string, riskTier: "aman" | "waspada" | "berisiko") {
+  const parsed = urlScanSchema.safeParse({ domain, riskTier });
+  if (!parsed.success) return { awarded: 0 };
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user || !withinGamificationLimit(user.id)) return { awarded: 0 };
+
+  const { count } = await supabase
+    .from("url_scans")
+    .select("id", { count: "exact", head: true })
+    .eq("user_id", user.id);
+
+  await supabase.from("url_scans").insert({
+    user_id: user.id,
+    domain: parsed.data.domain,
+    risk_tier: parsed.data.riskTier,
+  });
+
+  let awarded = 0;
+  if (!count) {
+    await supabase.rpc("add_points", { p_amount: POINTS.urlScanFirstTry });
+    awarded = POINTS.urlScanFirstTry;
+  }
+
+  revalidatePath("/dashboard");
+  return { awarded };
+}
+
+export async function recordRoleplaySession(scenario: string, score: number) {
+  const parsed = roleplaySessionSchema.safeParse({ scenario, score });
+  if (!parsed.success) return { awarded: 0 };
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user || !withinGamificationLimit(user.id)) return { awarded: 0 };
+
+  const { count } = await supabase
+    .from("roleplay_sessions")
+    .select("id", { count: "exact", head: true })
+    .eq("user_id", user.id);
+
+  await supabase.from("roleplay_sessions").insert({
+    user_id: user.id,
+    scenario: parsed.data.scenario,
+    score: parsed.data.score,
+  });
+
+  let awarded = 0;
+  if (!count) {
+    await supabase.rpc("add_points", { p_amount: POINTS.roleplaySessionFirstTry });
+    awarded = POINTS.roleplaySessionFirstTry;
+  }
+
+  if (parsed.data.score >= ROLEPLAY_RESILIENT_THRESHOLD) {
+    await supabase.rpc("award_badge", { p_badge_id: "roleplay-resilient" });
   }
 
   revalidatePath("/dashboard");

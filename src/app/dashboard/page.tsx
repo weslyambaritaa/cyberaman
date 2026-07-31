@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Trophy, KeyRound, Fish, Search, BookOpen, ImageOff, ShieldHalf, Sparkles } from "lucide-react";
+import { Trophy, BookOpen, Link2, ShieldAlert, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { BadgeGrid } from "@/components/dashboard/BadgeGrid";
@@ -87,42 +87,29 @@ export default async function DashboardPage() {
       <h2 className="mt-10 mb-4 text-lg font-semibold text-white">Lencana</h2>
       <BadgeGrid badges={badges} earnedIds={earnedIds} />
 
-      <h2 className="mt-10 mb-4 text-lg font-semibold text-white">Coba Tools Lagi</h2>
-      <div className="grid gap-3 sm:grid-cols-3">
-        <Link href="/tools/password-checker">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <KeyRound className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">Cek Kata Sandi</span>
+      <div className="mt-10 mb-4 flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-white">Tools Unggulan</h2>
+        <Link href="/tools" className="flex items-center gap-1 text-sm text-emerald-400 hover:underline">
+          Lihat semua tools <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Link href="/tools/url-scanner">
+          <Card className="flex items-center gap-3 transition hover:border-emerald-500/50">
+            <Link2 className="h-6 w-6 shrink-0 text-emerald-400" />
+            <div>
+              <span className="text-sm font-medium text-slate-200">Pemindai Link</span>
+              <p className="text-xs text-slate-400">Cek link apa pun secara real-time</p>
+            </div>
           </Card>
         </Link>
-        <Link href="/tools/phishing-simulator">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <Fish className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">Simulasi Phishing</span>
-          </Card>
-        </Link>
-        <Link href="/tools/footprint-checklist">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <Search className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">Jejak Digital</span>
-          </Card>
-        </Link>
-        <Link href="/tools/metadata-checker">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <ImageOff className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">Cek Metadata Foto</span>
-          </Card>
-        </Link>
-        <Link href="/tools/2fa-simulator">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <ShieldHalf className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">Simulator 2FA</span>
-          </Card>
-        </Link>
-        <Link href="/tools/ai-assistant">
-          <Card className="flex flex-col items-center gap-2 text-center transition hover:border-emerald-500/50">
-            <Sparkles className="h-6 w-6 text-emerald-400" />
-            <span className="text-sm font-medium text-slate-200">AI Assistant</span>
+        <Link href="/tools/roleplay">
+          <Card className="flex items-center gap-3 transition hover:border-emerald-500/50">
+            <ShieldAlert className="h-6 w-6 shrink-0 text-emerald-400" />
+            <div>
+              <span className="text-sm font-medium text-slate-200">Roleplay Penipu (AI)</span>
+              <p className="text-xs text-slate-400">Latih insting waspadamu real-time</p>
+            </div>
           </Card>
         </Link>
       </div>

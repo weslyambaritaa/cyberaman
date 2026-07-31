@@ -9,10 +9,24 @@ import {
   Trophy,
   Lock,
   Sparkles,
+  Link2,
+  ShieldAlert,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
 const TOOLS = [
+  {
+    href: "/tools/url-scanner",
+    icon: Link2,
+    title: "Pemindai Link",
+    desc: "Cek link apa pun secara real-time — bukan contoh karangan — untuk pola phishing, plus verifikasi Google Safe Browsing.",
+  },
+  {
+    href: "/tools/roleplay",
+    icon: ShieldAlert,
+    title: "Roleplay Penipu (AI)",
+    desc: "Ngobrol langsung dengan AI yang berperan sebagai penipu — latih insting waspadamu secara real-time, bukan cuma tebak-tebakan.",
+  },
   {
     href: "/tools/password-checker",
     icon: KeyRound,
@@ -99,7 +113,7 @@ export default function Home() {
         <div className="mb-10 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold text-white md:text-3xl">
-              Enam Tools, Satu Tujuan: Lebih Aman Berinternet
+              Delapan Tools, Satu Tujuan: Lebih Aman Berinternet
             </h2>
             <p className="mt-2 text-slate-400">
               Semua tools bisa langsung dicoba — masuk untuk menyimpan progres dan
@@ -107,7 +121,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map(({ href, icon: Icon, title, desc }) => (
             <Link key={href} href={href}>
               <Card className="h-full transition hover:border-emerald-500/50 hover:bg-slate-900">

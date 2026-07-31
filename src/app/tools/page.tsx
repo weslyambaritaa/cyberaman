@@ -7,12 +7,28 @@ import {
   ShieldHalf,
   Sparkles,
   Wrench,
+  Link2,
+  ShieldAlert,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
 export const metadata = { title: "Tools — CyberAman" };
 
 const TOOLS = [
+  {
+    href: "/tools/url-scanner",
+    icon: Link2,
+    title: "Pemindai Link",
+    desc: "Cek link apa pun secara real-time untuk pola phishing (typosquatting, punycode, dll) + verifikasi Google Safe Browsing.",
+    badge: "Unggulan",
+  },
+  {
+    href: "/tools/roleplay",
+    icon: ShieldAlert,
+    title: "Simulasi Roleplay Penipu",
+    desc: "Ngobrol langsung dengan AI yang berperan sebagai penipu — latih insting waspadamu secara real-time.",
+    badge: "Unggulan",
+  },
   {
     href: "/tools/password-checker",
     icon: KeyRound,
@@ -66,10 +82,17 @@ export default function ToolsHubPage() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {TOOLS.map(({ href, icon: Icon, title, desc }) => (
+        {TOOLS.map(({ href, icon: Icon, title, desc, badge }) => (
           <Link key={href} href={href}>
             <Card className="h-full transition hover:border-emerald-500/50 hover:bg-slate-900">
-              <Icon className="h-7 w-7 text-emerald-400" aria-hidden />
+              <div className="flex items-start justify-between">
+                <Icon className="h-7 w-7 text-emerald-400" aria-hidden />
+                {badge && (
+                  <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                    {badge}
+                  </span>
+                )}
+              </div>
               <h2 className="mt-3 font-semibold text-white">{title}</h2>
               <p className="mt-1.5 text-sm text-slate-400">{desc}</p>
             </Card>

@@ -144,7 +144,8 @@ insert into public.badges (id, name, description, icon, points_threshold) values
   ('silver', 'Penjaga Data', 'Mengumpulkan 50 poin literasi digital', 'ShieldCheck', 50),
   ('gold', 'Master Keamanan Digital', 'Mengumpulkan 100 poin literasi digital', 'ShieldPlus', 100),
   ('phishing-pro', 'Anti Phishing', 'Menjawab benar semua soal simulasi phishing', 'Fish', null),
-  ('footprint-checked', 'Detektif Jejak Digital', 'Menyelesaikan checklist jejak digital', 'Search', null)
+  ('footprint-checked', 'Detektif Jejak Digital', 'Menyelesaikan checklist jejak digital', 'Search', null),
+  ('roleplay-resilient', 'Anti Manipulasi', 'Meraih skor 70+ pada simulasi roleplay penipu', 'ShieldAlert', null)
 on conflict (id) do update set
   name = excluded.name,
   description = excluded.description,
@@ -254,5 +255,47 @@ alter table public.metadata_checks enable row level security;
 drop policy if exists "users manage their own metadata checks" on public.metadata_checks;
 create policy "users manage their own metadata checks"
   on public.metadata_checks for all
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+-- ============================================================
+-- 11. url_scans — URL Safety Scanner usage log.
+-- Only the domain (not the full URL, which could contain query-string PII
+-- from a real phishing link) and the resulting risk tier are stored.
+-- ============================================================
+create table if not exists public.url_scans (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles (id) on delete cascade,
+  domain text not null,
+  risk_tier text not null check (risk_tier in ('aman', 'waspada', 'berisiko')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.url_scans enable row level security;
+
+drop policy if exists "users manage their own url scans" on public.url_scans;
+create policy "users manage their own url scans"
+  on public.url_scans for all
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+-- ============================================================
+-- 12. roleplay_sessions — AI Attacker Roleplay results.
+-- Only the scenario and final score are stored — never the conversation
+-- transcript itself (it's a live client<->Gemini exchange, not persisted).
+-- ============================================================
+create table if not exists public.roleplay_sessions (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles (id) on delete cascade,
+  scenario text not null,
+  score smallint not null check (score between 0 and 100),
+  created_at timestamptz not null default now()
+);
+
+alter table public.roleplay_sessions enable row level security;
+
+drop policy if exists "users manage their own roleplay sessions" on public.roleplay_sessions;
+create policy "users manage their own roleplay sessions"
+  on public.roleplay_sessions for all
   using (auth.uid() = user_id)
   with check (auth.uid() = user_id);

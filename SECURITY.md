@@ -18,7 +18,10 @@ keamanan aplikasi ini secara teknis dan percaya diri.
 | 8 | Graceful degradation | `src/lib/queries.ts` (`safely()`) | Kalau Supabase down/misconfigured, situs tetap tampil (mode "belum login"), bukan crash 500 — penting untuk skor "Fungsionalitas & Performa: bug-free". |
 | 9 | Kata sandi tidak pernah "dicek" ke pihak lain secara telanjang | `src/lib/pwned-check.ts` | Cek kebocoran password memakai model k-anonymity HIBP — hanya 5 karakter awal SHA-1 hash yang dikirim ke API publik, cukup untuk verifikasi tanpa pernah membocorkan kata sandi/hash penuh. |
 | 10 | Foto tidak pernah diunggah ke server | `MetadataChecker.tsx` | Parsing EXIF & pembuatan versi "bersih" (lewat canvas) 100% terjadi di browser pengguna. |
-| 11 | AI endpoint di-gate & di-rate-limit | `src/app/api/ai-assistant/route.ts` | Wajib login (mencegah penyalahgunaan anonim menghabiskan kuota API gratis), dibatasi 10 request/menit per user, dan `GEMINI_API_KEY` hanya pernah dibaca di server — tidak pernah dikirim/terekspos ke browser. |
+| 11 | AI endpoint di-gate & di-rate-limit | `src/app/api/ai-assistant/route.ts`, `src/app/api/roleplay/route.ts` | Wajib login (mencegah penyalahgunaan anonim menghabiskan kuota API gratis), dibatasi 10-20 request/menit per user, dan `GEMINI_API_KEY` hanya pernah dibaca di server — tidak pernah dikirim/terekspos ke browser. |
+| 12 | Pemindai Link tidak menyimpan URL lengkap | `supabase/schema.sql` (`url_scans`) | Hanya domain & tingkat risiko yang disimpan, bukan URL penuh — URL asli phishing kadang membawa query string berisi data pribadi korban di dunia nyata. |
+| 13 | Simulasi Roleplay tidak menyimpan transkrip | `supabase/schema.sql` (`roleplay_sessions`) | Percakapan roleplay hanya hidup di state klien selama sesi berlangsung; yang disimpan ke database cuma skor akhir & skenario, bukan isi chat-nya. |
+| 14 | Google Safe Browsing key opsional & fail-open ke heuristik | `src/app/api/url-scan/route.ts` | Kalau API key tidak diset atau API-nya gagal dihubungi, tool tetap memberi hasil lengkap dari mesin heuristik sendiri — tidak ada single point of failure. |
 
 ## Kalau juri tanya...
 
