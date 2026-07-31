@@ -44,7 +44,8 @@ export function MetadataChecker({ isLoggedIn }: { isLoggedIn: boolean }) {
           setSaved(true);
         });
       }
-    } catch {
+    } catch (error) {
+      console.warn("Gagal membaca EXIF (file mungkin corrupt/format tidak didukung):", error);
       setMetadata({});
     } finally {
       setLoading(false);
