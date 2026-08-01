@@ -37,7 +37,7 @@ export default async function DashboardPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 md:px-6">
       <h1 className="text-2xl font-bold text-white">
-        Halo, {profile?.username ?? "Pengguna"} 👋
+        Halo, {profile?.username ?? "Pengguna"} 
       </h1>
       <p className="mt-1 text-sm text-slate-400">
         Ini progres literasi keamanan digitalmu sejauh ini.

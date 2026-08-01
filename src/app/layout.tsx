@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CyberAman — Lomba Web Development FTI Festival 2026",
+  title: "CyberAman — By Team Kilijum",
   description:
     "Platform edukasi & tools interaktif keamanan siber dan literasi digital: cek kata sandi, simulasi phishing, checklist jejak digital, dan modul belajar bergamifikasi.",
 };

@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 text-center md:flex-row md:justify-between md:text-left">
         <div className="flex items-center gap-2">
           <Shield className="h-4 w-4 text-emerald-400" aria-hidden />
-          <span>CyberAman &mdash; Lomba Web Development FTI Festival 2026</span>
+          <span>CyberAman &mdash; By Team Kilijum</span>
         </div>
         
       </div>
