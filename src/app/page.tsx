@@ -79,17 +79,14 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(16,185,129,0.15),_transparent_60%)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-300">
-              <Sparkles className="h-3.5 w-3.5" aria-hidden />
-              FTI Festival 2026 — Tema PIXEL
-            </span>
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-              Belajar Keamanan Siber Sambil <span className="text-emerald-400">Mempraktikkannya</span>
+              Belajar Keamanan Siber Sambil{" "}
+              <span className="text-emerald-400">Mempraktikkannya</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-slate-400">
-              CyberAman adalah platform edukasi interaktif untuk melindungi informasi
-              digital: cek kata sandi, kenali phishing, ukur jejak digitalmu, dan
-              kumpulkan poin sambil belajar.
+              CyberAman adalah platform edukasi interaktif untuk melindungi
+              informasi digital: cek kata sandi, kenali phishing, ukur jejak
+              digitalmu, dan kumpulkan poin sambil belajar.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -116,8 +113,8 @@ export default function Home() {
               Delapan Tools, Satu Tujuan: Lebih Aman Berinternet
             </h2>
             <p className="mt-2 text-slate-400">
-              Semua tools bisa langsung dicoba — masuk untuk menyimpan progres dan
-              mengumpulkan poin.
+              Semua tools bisa langsung dicoba — masuk untuk menyimpan progres
+              dan mengumpulkan poin.
             </p>
           </div>
         </div>
@@ -144,14 +141,20 @@ export default function Home() {
               Protection Information Exploration in the Digital Era
             </p>
             <p className="mt-4 text-slate-400">
-              CyberAman dirancang menjawab tantangan kebocoran data dan serangan siber
-              lewat solusi yang bisa langsung dipakai masyarakat umum, bukan sekadar
-              wacana. Cakupan subtema yang diangkat:
+              CyberAman dirancang menjawab tantangan kebocoran data dan serangan
+              siber lewat solusi yang bisa langsung dipakai masyarakat umum,
+              bukan sekadar wacana. Cakupan subtema yang diangkat:
             </p>
             <ul className="mt-5 space-y-2">
               {SUBTHEMES.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-sm text-slate-300">
-                  <Shield className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" aria-hidden />
+                <li
+                  key={s}
+                  className="flex items-start gap-2 text-sm text-slate-300"
+                >
+                  <Shield
+                    className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+                    aria-hidden
+                  />
                   {s}
                 </li>
               ))}
@@ -163,26 +166,35 @@ export default function Home() {
               Keamanan Bukan Sekadar Fitur
             </h2>
             <p className="mt-4 text-slate-400">
-              Karena topiknya keamanan siber, kami menerapkan praktik keamanan itu
-              sendiri di dalam kode:
+              Karena topiknya keamanan siber, kami menerapkan praktik keamanan
+              itu sendiri di dalam kode:
             </p>
             <div className="mt-5 space-y-3">
               <div className="flex items-start gap-3">
-                <Lock className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden />
+                <Lock
+                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  aria-hidden
+                />
                 <p className="text-sm text-slate-300">
-                  Autentikasi & Row Level Security lewat Supabase — setiap pengguna
-                  hanya bisa mengakses datanya sendiri.
+                  Autentikasi & Row Level Security lewat Supabase — setiap
+                  pengguna hanya bisa mengakses datanya sendiri.
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <KeyRound className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden />
+                <KeyRound
+                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  aria-hidden
+                />
                 <p className="text-sm text-slate-300">
-                  Kata sandi asli tidak pernah disimpan atau dikirim — hanya skor
-                  kekuatannya yang dicatat.
+                  Kata sandi asli tidak pernah disimpan atau dikirim — hanya
+                  skor kekuatannya yang dicatat.
                 </p>
               </div>
               <div className="flex items-start gap-3">
-                <Trophy className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden />
+                <Trophy
+                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  aria-hidden
+                />
                 <p className="text-sm text-slate-300">
                   Validasi form di sisi klien & server, mencegah input berbahaya
                   maupun manipulasi poin.
@@ -198,7 +210,8 @@ export default function Home() {
           Siap Naikkan Level Keamanan Digitalmu?
         </h2>
         <p className="mx-auto mt-3 max-w-md text-slate-400">
-          Daftar gratis, kumpulkan poin dan lencana, lalu lihat posisimu di papan skor.
+          Daftar gratis, kumpulkan poin dan lencana, lalu lihat posisimu di
+          papan skor.
         </p>
         <Link
           href="/signup"
