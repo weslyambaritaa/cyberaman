@@ -76,11 +76,11 @@ export default function Home() {
   return (
     <div>
       <section
-        className="relative overflow-hidden border-b border-white/15 bg-cover bg-[position:72%_center] md:bg-right"
+        className="relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden border-b border-white/15 bg-cover bg-[position:72%_center] md:bg-right"
         style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/20 md:from-black/90 md:via-black/55 md:to-black/10" />
-        <div className="relative z-10 mx-auto max-w-[1360px] px-4 py-24 md:px-6 md:py-32">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/25 md:from-black/95 md:via-black/80 md:to-black/15" />
+        <div className="relative z-10 mx-auto w-full max-w-[1360px] px-4 py-20 md:px-6 md:py-24">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center md:mx-0 md:items-start md:text-left">
             <h1 className="text-4xl font-normal leading-[1.17] tracking-[-0.24px] text-white md:text-5xl">
               Belajar Keamanan Siber Sambil{" "}
@@ -111,12 +111,12 @@ export default function Home() {
 
       <section className="relative isolate overflow-hidden border-b border-white/15 bg-black">
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-[position:28%_center] md:bg-left"
+          className="pointer-events-none absolute inset-0 bg-cover bg-[position:28%_center] opacity-45 md:bg-left"
           style={{
             backgroundImage: "url('/images/cyberaman-bg-threat-awareness.png')",
           }}
         />
-        <div className="pointer-events-none absolute inset-0 bg-black/80 md:bg-black/70" />
+        <div className="pointer-events-none absolute inset-0 bg-black/85 md:bg-black/75" />
         <div className="relative z-10 mx-auto max-w-[1360px] px-4 py-20 md:px-6">
           <div className="mb-10 flex items-end justify-between gap-4">
           <div>
@@ -144,12 +144,12 @@ export default function Home() {
 
       <section className="relative isolate overflow-hidden border-y border-white/15 bg-[#101011]">
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-[position:72%_center] md:bg-right"
+          className="pointer-events-none absolute inset-0 bg-cover bg-[position:72%_center] opacity-50 md:bg-right"
           style={{
             backgroundImage: "url('/images/cyberaman-bg-digital-learning.png')",
           }}
         />
-        <div className="pointer-events-none absolute inset-0 bg-black/75 md:bg-black/65" />
+        <div className="pointer-events-none absolute inset-0 bg-black/85 md:bg-black/75" />
         <div className="relative z-10 mx-auto grid max-w-[1360px] gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
           <div>
             <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
