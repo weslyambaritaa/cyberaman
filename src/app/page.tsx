@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <div>
       <section
-        className="relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden border-b border-white/15 bg-cover bg-[position:72%_center] md:bg-right"
+        className="relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden border-b border-white/15 bg-contain bg-no-repeat bg-[position:72%_center] md:bg-right"
         style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
       >
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/25 md:from-black/95 md:via-black/80 md:to-black/15" />
@@ -111,7 +111,7 @@ export default function Home() {
 
       <section className="relative isolate overflow-hidden border-b border-white/15 bg-black">
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-[position:28%_center] opacity-45 md:bg-left"
+          className="pointer-events-none absolute inset-0 bg-contain bg-no-repeat bg-[position:28%_center] opacity-45 md:bg-left"
           style={{
             backgroundImage: "url('/images/cyberaman-bg-threat-awareness.png')",
           }}
@@ -144,7 +144,7 @@ export default function Home() {
 
       <section className="relative isolate overflow-hidden border-y border-white/15 bg-[#101011]">
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-[position:72%_center] opacity-50 md:bg-right"
+          className="pointer-events-none absolute inset-0 bg-contain bg-no-repeat bg-[position:72%_center] opacity-50 md:bg-right"
           style={{
             backgroundImage: "url('/images/cyberaman-bg-digital-learning.png')",
           }}
