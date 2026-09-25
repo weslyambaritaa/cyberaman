@@ -75,9 +75,13 @@ const SUBTHEMES = [
 export default function Home() {
   return (
     <div>
-      <section className="border-b border-white/15 bg-black">
-        <div className="mx-auto max-w-[1360px] px-4 py-24 md:px-6 md:py-32">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+      <section
+        className="relative overflow-hidden border-b border-white/15 bg-cover bg-[position:72%_center] md:bg-right"
+        style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
+      >
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/20 md:from-black/90 md:via-black/55 md:to-black/10" />
+        <div className="relative z-10 mx-auto max-w-[1360px] px-4 py-24 md:px-6 md:py-32">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center md:mx-0 md:items-start md:text-left">
             <h1 className="text-4xl font-normal leading-[1.17] tracking-[-0.24px] text-white md:text-5xl">
               Belajar Keamanan Siber Sambil{" "}
               <span className="text-[#7B66FF]">Mempraktikkannya</span>
@@ -105,8 +109,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-white/15 bg-black">
-        <div className="mx-auto max-w-[1360px] px-4 py-20 md:px-6">
+      <section className="relative isolate overflow-hidden border-b border-white/15 bg-black">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-[position:28%_center] md:bg-left"
+          style={{
+            backgroundImage: "url('/images/cyberaman-bg-threat-awareness.png')",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-black/80 md:bg-black/70" />
+        <div className="relative z-10 mx-auto max-w-[1360px] px-4 py-20 md:px-6">
           <div className="mb-10 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
@@ -121,7 +132,7 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-3 xl:grid-cols-6">
           {TOOLS.map(({ href, icon: Icon, title }) => (
             <Link key={href} href={href}>
-              <Card className="h-full rounded-xl border-0 bg-[#18181A] p-6 shadow-none transition hover:bg-[#222225]">
+              <Card className="h-full rounded-xl border-0 bg-[#18181A]/95 p-6 shadow-none transition hover:bg-[#222225]/95">
                 <Icon className="h-8 w-8 text-[#7B66FF]" aria-hidden />
                 <h3 className="mt-4 text-xl font-semibold leading-[1.33] tracking-[-0.12px] text-white">{title}</h3>
               </Card>
@@ -131,8 +142,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/15 bg-[#101011]">
-        <div className="mx-auto grid max-w-[1360px] gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
+      <section className="relative isolate overflow-hidden border-y border-white/15 bg-[#101011]">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-[position:72%_center] md:bg-right"
+          style={{
+            backgroundImage: "url('/images/cyberaman-bg-digital-learning.png')",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-black/75 md:bg-black/65" />
+        <div className="relative z-10 mx-auto grid max-w-[1360px] gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
           <div>
             <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
               Tema: PIXEL
