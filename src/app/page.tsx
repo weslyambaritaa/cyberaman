@@ -80,13 +80,13 @@ export default function Home() {
         style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
       >
         <div className="pointer-events-none absolute inset-0 bg-slate-950/70 md:bg-slate-950/55" />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
-          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
+        <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-6 md:py-32">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
               Belajar Keamanan Siber Sambil{" "}
               <span className="text-emerald-400">Mempraktikkannya</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-slate-400">
+            <p className="mt-6 max-w-lg text-base leading-7 text-slate-300 md:text-lg">
               CyberAman adalah platform edukasi interaktif untuk melindungi
               informasi digital: cek kata sandi, kenali phishing, ukur jejak
               digitalmu, dan kumpulkan poin sambil belajar.
@@ -94,13 +94,13 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/signup"
-                className="rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+                className="rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
               >
                 Mulai Gratis
               </Link>
               <Link
                 href="/tools/password-checker"
-                className="rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500"
+                className="rounded-full border border-white/20 bg-slate-950/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-slate-950/60"
               >
                 Coba Tools Tanpa Daftar
               </Link>
@@ -117,10 +117,10 @@ export default function Home() {
           }}
         />
         <div className="pointer-events-none absolute inset-0 bg-slate-950/70" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 md:px-6">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 md:px-6">
           <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
               Delapan Tools, Satu Tujuan: Lebih Aman Berinternet
             </h2>
             <p className="mt-2 text-slate-400">
@@ -132,10 +132,10 @@ export default function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map(({ href, icon: Icon, title, desc }) => (
             <Link key={href} href={href}>
-              <Card className="h-full transition hover:border-emerald-500/50 hover:bg-slate-900">
+              <Card className="h-full rounded-xl border-slate-700/80 bg-slate-950/90 shadow-none transition hover:border-emerald-500/50 hover:bg-slate-900">
                 <Icon className="h-8 w-8 text-emerald-400" aria-hidden />
                 <h3 className="mt-4 font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-sm text-slate-400">{desc}</p>
+                <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">{desc}</p>
               </Card>
             </Link>
           ))}
@@ -151,9 +151,9 @@ export default function Home() {
           }}
         />
         <div className="pointer-events-none absolute inset-0 bg-slate-950/75 md:bg-slate-950/65" />
-        <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
           <div>
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
               Tema: PIXEL
             </h2>
             <p className="mt-1 text-sm font-medium text-emerald-400">
@@ -181,7 +181,7 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-white md:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
               Keamanan Bukan Sekadar Fitur
             </h2>
             <p className="mt-4 text-slate-400">
@@ -224,8 +224,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 text-center md:px-6">
-        <h2 className="text-2xl font-bold text-white md:text-3xl">
+      <section className="mx-auto max-w-7xl px-4 py-20 text-center md:px-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
           Siap Naikkan Level Keamanan Digitalmu?
         </h2>
         <p className="mx-auto mt-3 max-w-md text-slate-400">
@@ -234,7 +234,7 @@ export default function Home() {
         </p>
         <Link
           href="/signup"
-          className="mt-6 inline-block rounded-lg bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+          className="mt-6 inline-block rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
         >
           Buat Akun Sekarang
         </Link>
