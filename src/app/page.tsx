@@ -75,8 +75,11 @@ const SUBTHEMES = [
 export default function Home() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-slate-800">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(16,185,129,0.15),_transparent_60%)]" />
+      <section
+        className="relative overflow-hidden border-b border-slate-800 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
+      >
+        <div className="pointer-events-none absolute inset-0 bg-slate-950/70 md:bg-slate-950/55" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
@@ -106,8 +109,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 md:px-6">
-        <div className="mb-10 flex items-end justify-between gap-4">
+      <section className="relative isolate overflow-hidden border-b border-slate-800 bg-slate-950">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
+          style={{
+            backgroundImage: "url('/images/cyberaman-bg-threat-awareness.png')",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-slate-950/70" />
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 md:px-6">
+          <div className="mb-10 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-bold text-white md:text-3xl">
               Delapan Tools, Satu Tujuan: Lebih Aman Berinternet
@@ -118,7 +129,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map(({ href, icon: Icon, title, desc }) => (
             <Link key={href} href={href}>
               <Card className="h-full transition hover:border-emerald-500/50 hover:bg-slate-900">
@@ -128,11 +139,19 @@ export default function Home() {
               </Card>
             </Link>
           ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-slate-800 bg-slate-900/40">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+      <section className="relative isolate overflow-hidden border-y border-slate-800 bg-slate-900">
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-right opacity-25 md:bg-center"
+          style={{
+            backgroundImage: "url('/images/cyberaman-bg-digital-learning.png')",
+          }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-slate-950/75 md:bg-slate-950/65" />
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
           <div>
             <h2 className="text-2xl font-bold text-white md:text-3xl">
               Tema: PIXEL
