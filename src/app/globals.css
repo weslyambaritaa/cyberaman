@@ -13,6 +13,28 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Compatibility tokens: existing routes inherit the public design system. */
+@theme {
+  --color-slate-950: #000000;
+  --color-slate-900: #101011;
+  --color-slate-800: #18181a;
+  --color-slate-700: #222225;
+  --color-slate-500: #dedee2;
+  --color-slate-400: #dedee2;
+  --color-slate-300: #dedee2;
+  --color-slate-200: #ffffff;
+  --color-slate-100: #ffffff;
+  --color-emerald-500: #673de6;
+  --color-emerald-400: #9d99ff;
+  --color-emerald-300: #9d99ff;
+  --color-red-500: #673de6;
+  --color-red-400: #9d99ff;
+  --color-red-300: #9d99ff;
+  --color-yellow-500: #673de6;
+  --color-yellow-400: #9d99ff;
+  --color-amber-600: #7b66ff;
+}
+
 html {
   scroll-behavior: smooth;
 }

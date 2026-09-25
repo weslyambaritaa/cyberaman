@@ -3,7 +3,7 @@ import clsx from "clsx";
 export function ProgressBar({
   value,
   max,
-  colorClassName = "bg-emerald-500",
+  colorClassName = "bg-[#673DE6]",
 }: {
   value: number;
   max: number;
@@ -13,7 +13,7 @@ export function ProgressBar({
 
   return (
     <div
-      className="h-2.5 w-full overflow-hidden rounded-full bg-slate-800"
+      className="h-2.5 w-full overflow-hidden rounded-full bg-[#222225]"
       role="progressbar"
       aria-valuenow={value}
       aria-valuemin={0}

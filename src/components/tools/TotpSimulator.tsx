@@ -76,7 +76,7 @@ export function TotpSimulator() {
                 cy="44"
                 r={RADIUS}
                 fill="none"
-                stroke={remainingSeconds <= 5 ? "#f87171" : "#34d399"}
+                stroke={remainingSeconds <= 5 ? "#673DE6" : "#9D99FF"}
                 strokeWidth="8"
                 strokeLinecap="round"
                 strokeDasharray={CIRCUMFERENCE}

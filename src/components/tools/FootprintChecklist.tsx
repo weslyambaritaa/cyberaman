@@ -142,7 +142,7 @@ export function FootprintChecklist({
         </Card>
       ))}
 
-      <div className="sticky bottom-4 flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/90 p-4 backdrop-blur">
+      <div className="sticky bottom-4 flex items-center justify-between rounded-xl border border-white/15 bg-[#18181A] p-4">
         <span className="text-sm text-slate-400">
           {answeredCount} / {items.length} terjawab
         </span>
