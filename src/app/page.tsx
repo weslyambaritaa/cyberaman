@@ -75,18 +75,14 @@ const SUBTHEMES = [
 export default function Home() {
   return (
     <div>
-      <section
-        className="relative overflow-hidden border-b border-slate-800 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/cyberaman-bg-hero.png')" }}
-      >
-        <div className="pointer-events-none absolute inset-0 bg-slate-950/70 md:bg-slate-950/55" />
-        <div className="relative mx-auto max-w-7xl px-4 py-24 md:px-6 md:py-32">
+      <section className="border-b border-white/15 bg-black">
+        <div className="mx-auto max-w-[1360px] px-4 py-24 md:px-6 md:py-32">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
+            <h1 className="text-4xl font-normal leading-[1.17] tracking-[-0.24px] text-white md:text-5xl">
               Belajar Keamanan Siber Sambil{" "}
-              <span className="text-emerald-400">Mempraktikkannya</span>
+              <span className="text-[#7B66FF]">Mempraktikkannya</span>
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-7 text-slate-300 md:text-lg">
+            <p className="hidden">
               CyberAman adalah platform edukasi interaktif untuk melindungi
               informasi digital: cek kata sandi, kenali phishing, ukur jejak
               digitalmu, dan kumpulkan poin sambil belajar.
@@ -94,13 +90,13 @@ export default function Home() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/signup"
-                className="rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+                className="min-h-12 rounded-full bg-[#673DE6] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#7B66FF]"
               >
                 Mulai Gratis
               </Link>
               <Link
                 href="/tools/password-checker"
-                className="rounded-full border border-white/20 bg-slate-950/40 px-7 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-slate-950/60"
+                className="min-h-12 rounded-xl border border-white/15 bg-[#222225] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#18181A]"
               >
                 Coba Tools Tanpa Daftar
               </Link>
@@ -109,33 +105,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden border-b border-slate-800 bg-slate-950">
-        <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: "url('/images/cyberaman-bg-threat-awareness.png')",
-          }}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-slate-950/70" />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 md:px-6">
+      <section className="border-b border-white/15 bg-black">
+        <div className="mx-auto max-w-[1360px] px-4 py-20 md:px-6">
           <div className="mb-10 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
               Delapan Tools, Satu Tujuan: Lebih Aman Berinternet
             </h2>
-            <p className="mt-2 text-slate-400">
+            <p className="hidden">
               Semua tools bisa langsung dicoba — masuk untuk menyimpan progres
               dan mengumpulkan poin.
             </p>
           </div>
         </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {TOOLS.map(({ href, icon: Icon, title, desc }) => (
+          <div className="grid gap-6 sm:grid-cols-3 xl:grid-cols-6">
+          {TOOLS.map(({ href, icon: Icon, title }) => (
             <Link key={href} href={href}>
-              <Card className="h-full rounded-xl border-slate-700/80 bg-slate-950/90 shadow-none transition hover:border-emerald-500/50 hover:bg-slate-900">
-                <Icon className="h-8 w-8 text-emerald-400" aria-hidden />
-                <h3 className="mt-4 font-semibold text-white">{title}</h3>
-                <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">{desc}</p>
+              <Card className="h-full rounded-xl border-0 bg-[#18181A] p-6 shadow-none transition hover:bg-[#222225]">
+                <Icon className="h-8 w-8 text-[#7B66FF]" aria-hidden />
+                <h3 className="mt-4 text-xl font-semibold leading-[1.33] tracking-[-0.12px] text-white">{title}</h3>
               </Card>
             </Link>
           ))}
@@ -143,23 +131,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative isolate overflow-hidden border-y border-slate-800 bg-slate-900">
-        <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-right opacity-25 md:bg-center"
-          style={{
-            backgroundImage: "url('/images/cyberaman-bg-digital-learning.png')",
-          }}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-slate-950/75 md:bg-slate-950/65" />
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
+      <section className="border-y border-white/15 bg-[#101011]">
+        <div className="mx-auto grid max-w-[1360px] gap-12 px-4 py-20 md:grid-cols-2 md:px-6">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
               Tema: PIXEL
             </h2>
-            <p className="mt-1 text-sm font-medium text-emerald-400">
+            <p className="mt-1 text-sm font-semibold text-[#9D99FF]">
               Protection Information Exploration in the Digital Era
             </p>
-            <p className="mt-4 text-slate-400">
+            <p className="hidden">
               CyberAman dirancang menjawab tantangan kebocoran data dan serangan
               siber lewat solusi yang bisa langsung dipakai masyarakat umum,
               bukan sekadar wacana. Cakupan subtema yang diangkat:
@@ -168,10 +149,10 @@ export default function Home() {
               {SUBTHEMES.map((s) => (
                 <li
                   key={s}
-                  className="flex items-start gap-2 text-sm text-slate-300"
+                  className="flex items-start gap-2 text-sm text-[#DEDEE2]"
                 >
                   <Shield
-                    className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#7B66FF]"
                     aria-hidden
                   />
                   {s}
@@ -181,40 +162,40 @@ export default function Home() {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+            <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
               Keamanan Bukan Sekadar Fitur
             </h2>
-            <p className="mt-4 text-slate-400">
+            <p className="hidden">
               Karena topiknya keamanan siber, kami menerapkan praktik keamanan
               itu sendiri di dalam kode:
             </p>
             <div className="mt-5 space-y-3">
               <div className="flex items-start gap-3">
                 <Lock
-                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#7B66FF]"
                   aria-hidden
                 />
-                <p className="text-sm text-slate-300">
+                <p className="text-sm text-[#DEDEE2]">
                   Autentikasi & Row Level Security lewat Supabase — setiap
                   pengguna hanya bisa mengakses datanya sendiri.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <KeyRound
-                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#7B66FF]"
                   aria-hidden
                 />
-                <p className="text-sm text-slate-300">
+                <p className="text-sm text-[#DEDEE2]">
                   Kata sandi asli tidak pernah disimpan atau dikirim — hanya
                   skor kekuatannya yang dicatat.
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <Trophy
-                  className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#7B66FF]"
                   aria-hidden
                 />
-                <p className="text-sm text-slate-300">
+                <p className="text-sm text-[#DEDEE2]">
                   Validasi form di sisi klien & server, mencegah input berbahaya
                   maupun manipulasi poin.
                 </p>
@@ -224,17 +205,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 text-center md:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+      <section className="mx-auto max-w-[1360px] px-4 py-20 text-center md:px-6">
+        <h2 className="text-2xl font-normal leading-[1.19] tracking-[-0.16px] text-white md:text-4xl">
           Siap Naikkan Level Keamanan Digitalmu?
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-slate-400">
+        <p className="hidden">
           Daftar gratis, kumpulkan poin dan lencana, lalu lihat posisimu di
           papan skor.
         </p>
         <Link
           href="/signup"
-          className="mt-6 inline-block rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
+          className="mt-8 inline-block min-h-12 rounded-full bg-[#673DE6] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#7B66FF]"
         >
           Buat Akun Sekarang
         </Link>

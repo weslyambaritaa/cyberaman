@@ -14,12 +14,12 @@ export async function Navbar() {
   const profile = user ? await getProfile(user.id) : null;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-white">
-          <Shield className="h-6 w-6 text-emerald-400" aria-hidden />
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-black shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
+      <div className="mx-auto flex h-[72px] max-w-[1360px] items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-white">
+          <Shield className="h-6 w-6 text-[#7B66FF]" aria-hidden />
           <span>
-            Cyber<span className="text-emerald-400">Aman</span>
+            Cyber<span className="text-[#7B66FF]">Aman</span>
           </span>
         </Link>
 
@@ -30,7 +30,7 @@ export async function Navbar() {
         <input type="checkbox" id="nav-toggle" className="peer sr-only" />
         <label
           htmlFor="nav-toggle"
-          className="cursor-pointer rounded-md border border-slate-700 p-2 text-slate-200 peer-focus-visible:ring-2 peer-focus-visible:ring-emerald-500 md:hidden"
+          className="cursor-pointer rounded-lg border border-white/15 p-2 text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#7B66FF] md:hidden"
           aria-label="Buka menu"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
@@ -44,31 +44,31 @@ export async function Navbar() {
         </label>
 
         <nav
-          className="absolute left-0 top-full hidden w-full flex-col gap-1 border-b border-slate-800 bg-slate-950 px-4 py-3 peer-checked:flex md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-none md:bg-transparent md:p-0"
+          className="absolute left-0 top-full hidden w-full flex-col gap-1 border-b border-white/15 bg-black px-4 py-3 peer-checked:flex md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-none md:bg-transparent md:p-0"
         >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-md px-2 py-1.5 text-sm text-slate-300 transition hover:text-emerald-400 md:px-0 md:py-0"
+              className="rounded-md px-2 py-1.5 text-sm text-[#DEDEE2] transition hover:text-white md:px-0 md:py-0"
             >
               {link.label}
             </Link>
           ))}
 
-          <div className="mt-2 flex items-center gap-3 border-t border-slate-800 pt-3 md:mt-0 md:border-none md:pt-0">
+          <div className="mt-2 flex items-center gap-3 border-t border-white/15 pt-3 md:mt-0 md:border-none md:pt-0">
             {profile ? (
               <>
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-1.5 rounded-full bg-slate-800 px-3 py-1.5 text-sm font-medium text-emerald-300"
+                  className="flex items-center gap-1.5 rounded-full bg-[#222225] px-3 py-1.5 text-sm font-medium text-[#9D99FF]"
                 >
                   <Trophy className="h-4 w-4" aria-hidden />
                   {profile.points} poin
                 </Link>
                 <Link
                   href="/dashboard"
-                  className="hidden items-center gap-1.5 text-sm text-slate-300 hover:text-white md:flex"
+                  className="hidden items-center gap-1.5 text-sm text-[#DEDEE2] hover:text-white md:flex"
                   title="Dashboard"
                 >
                   <LayoutDashboard className="h-4 w-4" aria-hidden />
@@ -76,7 +76,7 @@ export async function Navbar() {
                 <form action={signOutAction}>
                   <button
                     type="submit"
-                    className="flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-slate-400 hover:text-red-400"
+                    className="flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-[#DEDEE2] hover:text-white"
                   >
                     <LogOut className="h-4 w-4" aria-hidden />
                     Keluar
@@ -87,13 +87,13 @@ export async function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="rounded-md px-3 py-1.5 text-sm text-slate-300 hover:text-white"
+                  className="rounded-full px-4 py-2 text-sm font-semibold text-white hover:bg-white/15"
                 >
                   Masuk
                 </Link>
                 <Link
                   href="/signup"
-                  className="rounded-md bg-emerald-500 px-3 py-1.5 text-sm font-semibold text-slate-950 hover:bg-emerald-400"
+                  className="rounded-full bg-[#673DE6] px-4 py-2 text-sm font-semibold text-white hover:bg-[#7B66FF]"
                 >
                   Daftar
                 </Link>
