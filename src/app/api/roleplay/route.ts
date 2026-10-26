@@ -4,6 +4,7 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { rateLimit } from "@/lib/rate-limit";
 import { roleplayScenarios, ROLEPLAY_EVALUATOR_PROMPT } from "@/lib/content/roleplay-scenarios";
+import { getGeminiErrorResponse } from "@/lib/gemini-errors";
 
 const MODEL = "gemini-flash-latest";
 const VALID_SCENARIO_IDS = new Set(roleplayScenarios.map((s) => s.id));
@@ -89,10 +90,10 @@ export async function POST(request: Request) {
     const evaluation = response.text ?? "";
     return NextResponse.json({ evaluation, score: extractScore(evaluation) });
   } catch (error) {
-    console.error("Gemini API error (roleplay):", error);
+    const failure = getGeminiErrorResponse(error);
     return NextResponse.json(
-      { error: "Gagal menghubungi layanan AI. Coba lagi sebentar lagi." },
-      { status: 502 },
+      { error: failure.error },
+      { status: failure.status },
     );
   }
 }

@@ -46,7 +46,7 @@ export function AuthForm({
       ))}
 
       {state.error && (
-        <div className="flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2.5 text-sm text-red-300">
+        <div role="alert" aria-live="polite" className="flex items-start gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2.5 text-sm text-red-300">
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
           {state.error}
         </div>

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { rateLimit } from "@/lib/rate-limit";
 import { learningModules } from "@/lib/content/modules";
+import { getGeminiErrorResponse } from "@/lib/gemini-errors";
 
 // "gemini-flash-latest" is a stable alias Google keeps pointed at whichever
 // flash model is current — avoids re-pinning this every time a dated model
@@ -79,10 +80,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ result: response.text ?? "" });
   } catch (error) {
-    console.error("Gemini API error:", error);
+    const failure = getGeminiErrorResponse(error);
     return NextResponse.json(
-      { error: "Gagal menghubungi layanan AI. Coba lagi sebentar lagi." },
-      { status: 502 },
+      { error: failure.error },
+      { status: failure.status },
     );
   }
 }

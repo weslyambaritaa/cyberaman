@@ -45,11 +45,25 @@ export async function signUpAction(
   const { username, email, password } = parsed.data;
 
   const supabase = await createClient();
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: { data: { username } },
   });
+
+  // Supabase returns an obfuscated user with no identities when email
+  // confirmations are enabled and the address already belongs to an account.
+  // In projects with auto-confirm enabled, it instead returns an auth error.
+  const emailAlreadyRegistered =
+    error?.code === "user_already_exists" ||
+    error?.code === "email_exists" ||
+    Boolean(data.user && data.user.identities?.length === 0);
+
+  if (emailAlreadyRegistered) {
+    return {
+      error: "Email ini sudah terdaftar. Silakan masuk dengan email tersebut.",
+    };
+  }
 
   if (error) {
     return { error: error.message };
