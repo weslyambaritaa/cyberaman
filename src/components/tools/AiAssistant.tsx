@@ -123,6 +123,9 @@ export function AiAssistant() {
           <div className="prose prose-invert prose-sm max-w-none pt-3 prose-p:text-slate-300 prose-li:text-slate-300 prose-strong:text-white prose-headings:text-white">
             <Markdown>{result}</Markdown>
           </div>
+          <p className="mt-4 border-t border-slate-800 pt-3 text-xs leading-relaxed text-slate-400">
+            Analisis ini dibuat oleh AI dan dapat keliru. Jangan bagikan OTP atau data pribadi, dan verifikasi pesan melalui kanal resmi.
+          </p>
         </Card>
       )}
     </div>

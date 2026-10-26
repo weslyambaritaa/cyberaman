@@ -40,7 +40,7 @@ export default async function DashboardPage() {
         Halo, {profile?.username ?? "Pengguna"} 
       </h1>
       <p className="mt-1 text-sm text-slate-400">
-        Ini progres literasi keamanan digitalmu sejauh ini.
+        Ini progres latihan keamanan digitalmu. Skor membantu memilih materi berikutnya dan bukan penilaian resmi.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

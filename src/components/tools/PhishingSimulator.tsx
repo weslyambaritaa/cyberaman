@@ -31,6 +31,8 @@ export function PhishingSimulator({
   const [index, setIndex] = useState(0);
   const [answer, setAnswer] = useState<boolean | null>(null);
   const [score, setScore] = useState(0);
+  const [firstAttemptScore, setFirstAttemptScore] = useState<number | null>(null);
+  const [repeatAttemptScore, setRepeatAttemptScore] = useState<number | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const sample = samples[index];
@@ -61,6 +63,11 @@ export function PhishingSimulator({
         await completePhishingQuiz(finalScore === samples.length);
       });
     }
+
+    if (nextIndex >= samples.length) {
+      if (firstAttemptScore === null) setFirstAttemptScore(score);
+      else setRepeatAttemptScore(score);
+    }
   }
 
   if (finished) {
@@ -72,6 +79,17 @@ export function PhishingSimulator({
           Skor kamu: <span className="font-semibold text-emerald-400">{score}</span> /{" "}
           {samples.length}
         </p>
+        {firstAttemptScore !== null && repeatAttemptScore !== null && (
+          <div className="mx-auto mt-4 max-w-sm rounded-lg border border-white/10 bg-slate-900/70 p-3 text-left">
+            <p className="text-sm font-semibold text-white">Perbandingan latihan</p>
+            <p className="mt-1 text-sm text-slate-300">
+              Percobaan pertama: {firstAttemptScore}/{samples.length} · Pengulangan: {repeatAttemptScore}/{samples.length}
+            </p>
+            <p className="mt-1 text-xs text-slate-400">
+              Perubahan skor adalah indikator latihan singkat. Soal yang sama dapat memengaruhi hasil karena pengguna sudah melihat jawabannya.
+            </p>
+          </div>
+        )}
         {score === samples.length && (
           <p className="mt-2 text-sm text-emerald-300">
             🏅 Lencana &ldquo;Anti Phishing&rdquo; berhasil diraih!
@@ -93,7 +111,7 @@ export function PhishingSimulator({
           }}
           className="mt-5 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-slate-500"
         >
-          Ulangi Simulasi
+          {firstAttemptScore === null ? "Ulangi untuk membandingkan" : "Ulangi Simulasi"}
         </button>
       </Card>
     );

@@ -58,7 +58,7 @@ export function SecurityScoreCard({ score }: { score: SecurityScore }) {
         <div className="w-full flex-1">
           <h3 className="font-semibold text-white">Skor Keamanan Digital</h3>
           <p className="mt-1 text-sm text-slate-400">
-            Gabungan hasil dari tiga tools yang sudah kamu coba.
+            Ringkasan hasil latihan dari tiga tools. Gunakan untuk melihat area yang perlu dipelajari, bukan sebagai sertifikasi atau ukuran dampak program.
           </p>
 
           <div className="mt-4 space-y-2.5">

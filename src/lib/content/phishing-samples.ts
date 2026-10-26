@@ -78,9 +78,9 @@ export const phishingSamples: PhishingSample[] = [
   {
     id: "konfirmasi-pendaftaran-lomba",
     channel: "email",
-    from: "panitia@ftifestival.id",
+    from: "panitia@webdev-kampus.ac.id",
     subject: "Konfirmasi Pendaftaran Lomba Web Development",
-    body: "Terima kasih telah mendaftar. Silakan konfirmasi ulang melalui Contact Person resmi yang tercantum di formulir pendaftaran dengan melampirkan bukti pembayaran. Jangan bertransaksi di luar kontak resmi panitia.",
+    body: "Terima kasih telah mendaftar. Silakan konfirmasi melalui kontak resmi yang tercantum pada portal kegiatan. Jangan mengirim data sensitif atau melakukan pembayaran melalui tautan yang tidak tercantum di kanal resmi.",
     isPhishing: false,
     explanation:
       "Justru mengingatkan pengguna untuk hanya bertransaksi lewat kontak resmi — pola komunikasi yang transparan dan tidak meminta data sensitif langsung lewat email.",

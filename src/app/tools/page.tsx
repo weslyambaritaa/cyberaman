@@ -39,7 +39,7 @@ const TOOLS = [
     href: "/tools/phishing-simulator",
     icon: Fish,
     title: "Simulasi Phishing",
-    desc: "Uji kejelianmu menebak pesan phishing lewat contoh nyata.",
+    desc: "Latih kemampuan mengenali pesan simulasi dan pelajari tanda bahayanya.",
   },
   {
     href: "/tools/footprint-checklist",

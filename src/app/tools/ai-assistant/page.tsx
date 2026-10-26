@@ -22,6 +22,12 @@ export default async function AiAssistantPage() {
         </div>
       </div>
 
+      <Card className="mb-5 border-amber-400/20 bg-amber-400/5">
+        <p className="text-sm leading-relaxed text-slate-300">
+          Jangan tempel kata sandi, kode OTP, nomor identitas, alamat, atau pesan yang memuat data pribadi. Hasil AI hanya petunjuk awal; verifikasi melalui kanal resmi dan jangan jadikan analisis ini sebagai satu-satunya dasar keputusan.
+        </p>
+      </Card>
+
       {user ? (
         <AiAssistant />
       ) : (

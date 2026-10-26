@@ -4,6 +4,8 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  --font-dm-sans: Arial, Helvetica, sans-serif;
+  --font-geist-mono: "Cascadia Code", Consolas, monospace;
 }
 
 @theme inline {
@@ -27,12 +29,6 @@
   --color-emerald-500: #673de6;
   --color-emerald-400: #9d99ff;
   --color-emerald-300: #9d99ff;
-  --color-red-500: #673de6;
-  --color-red-400: #9d99ff;
-  --color-red-300: #9d99ff;
-  --color-yellow-500: #673de6;
-  --color-yellow-400: #9d99ff;
-  --color-amber-600: #7b66ff;
 }
 
 html {

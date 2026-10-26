@@ -15,7 +15,7 @@ export default async function PhishingSimulatorPage() {
         <div>
           <h1 className="text-2xl font-bold text-white">Simulasi Phishing</h1>
           <p className="text-sm text-slate-400">
-            Tebak apakah tiap pesan berikut adalah upaya phishing atau pesan yang aman.
+            Nilai pesan simulasi, pelajari alasan di balik jawabannya, lalu ulangi untuk melihat perbandingan skor latihan.
           </p>
         </div>
       </div>

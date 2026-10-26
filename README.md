@@ -1,23 +1,23 @@
 # CyberAman
 
-**Masalah:** mayoritas insiden keamanan digital di Indonesia — akun dibobol,
-data pribadi bocor, korban penipuan online — bukan disebabkan oleh serangan
-canggih, tapi oleh kebiasaan dasar yang tidak pernah diajarkan secara
-praktis: kata sandi lemah, tidak bisa mengenali phishing, dan tidak sadar
-seberapa banyak jejak digital yang mereka tinggalkan.
+**Hipotesis masalah:** pelajar sering berinteraksi dengan pesan digital, tetapi
+belum tentu memiliki ruang yang aman dan praktis untuk berlatih mengenali
+phishing serta kebiasaan perlindungan informasi. Hipotesis ini perlu diuji
+melalui wawancara, survei, dan uji penggunaan; proyek tidak menganggapnya
+sebagai temuan riset yang sudah tervalidasi.
 
-**Solusi:** CyberAman adalah platform edukasi keamanan siber yang tidak
-sekadar memberi bacaan, tapi memberi **tools interaktif** untuk langsung
-mempraktikkan dan mengukur kebiasaan digital pengguna sendiri — lalu
-mendorong keberlanjutan lewat gamifikasi (poin, lencana, papan skor).
+**Solusi:** CyberAman adalah platform edukasi keamanan digital untuk pelajar.
+Pengguna dapat mencoba **tools interaktif**, membaca materi, dan melihat
+progres latihan. Fokus dampak yang dituju adalah peningkatan literasi digital
+yang mendukung **SDG 4: Pendidikan Berkualitas**. Dampak tersebut belum
+diklaim terbukti; rencana validasi awal dan metriknya ada di
+[`docs/VALIDASI-AWAL-CYBERAMAN.md`](./docs/VALIDASI-AWAL-CYBERAMAN.md).
 
-Dibuat untuk **Lomba Web Development FTI Festival 2026** (Tema: *PIXEL —
-Protection Information Exploration in the Digital Era*). Subtema yang
-diangkat:
-- Keamanan Siber dan Perlindungan Informasi Digital
-- Privasi Data dan Perlindungan Identitas Digital
-- Artificial Intelligence untuk Keamanan Informasi
-- Platform Pembelajaran Digital yang Aman dan Inovatif
+Diarahkan untuk **Software Development Competition FOSTIFEST 2026** dengan
+tema *Innovate Beyond Boundaries: Digital Solutions for Sustainable
+Development*. Fokus subtema: Pendidikan Berkualitas & Pengembangan Sumber
+Daya Manusia (SDG 4). Pastikan selalu menggunakan guidebook dan pengumuman
+terbaru dari panitia.
 
 ## Fitur
 
@@ -50,7 +50,8 @@ diangkat:
 
 **Lainnya:**
 - **Skor Keamanan Digital** — agregasi hasil 3 tools penilaian jadi satu skor 0-100
-  di dashboard, dengan breakdown per komponen.
+  di dashboard, dengan breakdown per komponen. Ini ringkasan latihan, bukan
+  sertifikasi atau bukti dampak penelitian.
 - **Modul Belajar** — materi singkat seputar keamanan siber, privasi data, dan
   pemanfaatan AI yang etis.
 - **Gamifikasi** — poin, lencana, dan papan skor untuk mendorong literasi digital
