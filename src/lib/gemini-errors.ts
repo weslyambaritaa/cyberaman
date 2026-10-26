@@ -49,10 +49,31 @@ export function getGeminiErrorResponse(error: unknown) {
     };
   }
 
-  if (status === 503 || status === 504 || status === null || status >= 500) {
+  if (status === 503) {
     return {
       status: 502,
-      error: "Layanan Gemini sedang tidak tersedia. Coba lagi sebentar lagi.",
+      error: "Gemini sedang kelebihan beban (503). Tunggu sebentar lalu coba lagi.",
+    };
+  }
+
+  if (status === 504) {
+    return {
+      status: 502,
+      error: "Gemini tidak merespons tepat waktu (504). Coba lagi sebentar lagi.",
+    };
+  }
+
+  if (status !== null && status >= 500) {
+    return {
+      status: 502,
+      error: `Gemini mengalami gangguan server (${status}). Coba lagi sebentar lagi.`,
+    };
+  }
+
+  if (status === null) {
+    return {
+      status: 502,
+      error: "Server CyberAman gagal menjangkau Gemini. Periksa log hosting dan koneksi keluar server.",
     };
   }
 
